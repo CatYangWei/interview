@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class AppConfig {
+public class RoutingConfig {
 
     @Autowired
     Source1Config source1Config;
@@ -31,7 +31,7 @@ public class AppConfig {
         resolver.setTargetDataSources(dataSources);
         return resolver;
     }
-    @Bean
+    @Bean(name = "dataSource1")
     @ConfigurationProperties(prefix="spring.datasource.source1")
     public DataSource dataSource1() {
         org.apache.tomcat.jdbc.pool.DataSource dataSource= new  org.apache.tomcat.jdbc.pool.DataSource();
@@ -41,7 +41,7 @@ public class AppConfig {
         dataSource.setDriverClassName(source1Config.getDriverClassName());
         return dataSource;
     }
-    @Bean
+    @Bean(name = "dataSource2")
     @ConfigurationProperties(prefix="spring.datasource.source2")
     public DataSource dataSource2() {
         org.apache.tomcat.jdbc.pool.DataSource dataSource= new  org.apache.tomcat.jdbc.pool.DataSource();

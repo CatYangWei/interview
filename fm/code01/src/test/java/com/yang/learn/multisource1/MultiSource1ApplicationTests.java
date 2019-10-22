@@ -12,7 +12,9 @@ class MultiSource1ApplicationTests {
     InfoService infoService;
     @Test
     void contextLoads() {
-         Info info = infoService.getInfo();
+         Info info = infoService.getInfo(1);
+         String info1 = infoService.getInfoByTemplate1(1);
+         String info2 = infoService.getInfoByTemplate2(1);
         System.out.println(1111);
     }
 
